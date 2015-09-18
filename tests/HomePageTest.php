@@ -17,7 +17,9 @@ class HomePageTest extends TestCase
     /** @test */
     public function visit_as_member_with_a_dropbox_account_that_has_no_songs()
     {
-        $user = User::find(1);
+        $user = factory(DropMusic\User::class)->make([
+            'dropbox_token' => env('DROPBOX_TEST_TOKEN_1'),
+        ]);
 
         $this->actingAs($user)
              ->visit('/')
@@ -27,7 +29,7 @@ class HomePageTest extends TestCase
     /** @test */
     public function visit_as_member_with_no_dropbox_account()
     {
-        $user = User::find(2);
+        $user = factory(DropMusic\User::class)->make();
 
         $this->actingAs($user)
              ->visit('/')
@@ -37,7 +39,9 @@ class HomePageTest extends TestCase
     /** @test */
     public function visit_as_member_with_a_dropbox_account_that_has_songs()
     {
-        $user = User::find(3);
+        $user = factory(DropMusic\User::class)->make([
+            'dropbox_token' => env('DROPBOX_TEST_TOKEN_2'),
+        ]);
 
         $this->actingAs($user)
              ->visit('/')

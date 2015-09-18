@@ -13,9 +13,10 @@
 
 $factory->define(DropMusic\User::class, function ($faker) {
     return [
-        'name' => $faker->name,
+        'username' => $faker->name,
         'email' => $faker->email,
         'password' => str_random(10),
         'remember_token' => str_random(10),
+        'dropbox_token' => null,
     ];
 });
