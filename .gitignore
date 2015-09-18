@@ -1,0 +1,6 @@
+/vendor
+/node_modules
+Homestead.yaml
+.env
+/storage/dropmusic.db
+notes.txt
